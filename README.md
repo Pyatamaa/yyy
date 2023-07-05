@@ -305,6 +305,389 @@ Pada dasarnya layout web dengan css dapat diimplamentasikan dengan mudah pada co
 perlu diketahui adalah, pada Codeigniter 4 file yang menyimpan asset css dan javascript terletak pada
 direktori **public**.
 
+disini kita akan membuat 2 css untuk tampilan user dan tampilan admin, pertama kita akan buat css untuk user dengan nama **style.css**
+```
+/* import google font */
+@import
+url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+@import
+url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&display=swap');
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    line-height:1;
+    font-size:100%;
+    font-family:'Open Sans', sans-serif;
+    color:#5a5a5a;
+}
+#container {
+    width: 980px;
+    margin: 0 auto;
+    box-shadow: 0 0 1em #cccccc;
+}
+
+/* header */
+header {
+    padding: 20px;
+    background-image: url(bg2.jpg);
+}
+header h1 {
+    margin: 20px 10px;
+    color: #f3ef00;
+    text-align: center;
+    font-style: oblique;
+    font-weight: bold;
+    text-shadow:2px 2px red;
+}
+
+/* navigasi */
+nav {
+    background-color: #db5719;
+    height:50px;
+    line-height:50px;
+    position:relative;
+    margin:auto;
+    font-style: oblique;
+    font-weight: bold;  
+}
+nav ul {
+    list-style:none;
+}
+nav ul li a {
+    float:left;
+    width:150px;
+    color:#fff;
+    text-decoration:none;
+    display:block;
+    text-align:center;
+}
+nav ul li a.active,
+nav ul li a:hover {
+    background-color: #ea912b;
+    display:block;
+}
+
+/*css untuk menu hover dropdown*/
+nav ul li:hover .sub1 {display:block}
+nav ul .sub1 {
+    display:none;
+    position:absolute;
+    left:300px;
+    top:50px;
+    background-color:#ffae52;
+}
+.sub1 a:hover { color:#fff }
+
+/* footer */
+footer {
+    clear:both;
+    background-color:#1d1d1d;
+    padding:20px;
+    color:#eee;
+}
+
+/* Login Wrapper */
+#login-wrapper {
+    align-items: center;
+    width: 500px;
+    margin: 10px;
+    margin-left: 30%;
+    margin-top: 50px;
+    padding: 20px;
+    box-shadow: 0 0 1em #752929;
+    background-image: url(bg.jpg);
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-size: cover;
+    color: #ffffff
+}
+
+/* Isi */
+h1{
+    margin-bottom: 20px;
+}
+
+.form-control{
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #cccccc;
+    box-sizing: border-box;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+button[type=submit]{
+    padding: 7px;
+    color: white;
+    background-color: rgb(44, 118, 148);
+    box-sizing: border-box;
+    font-size: 15px;
+    border-radius: 4px;
+}
+
+button[type=submit]:active,
+button[type=submit]:hover{
+    opacity: 75%;
+}
+
+/* Tabel Warga */
+body{
+    font-family: sans-serif;
+}
+table{
+    border-collapse: collapse;
+    margin: 20px;
+    width: 95%;
+}
+table td{
+    border: 1px solid #c9c9c9;
+    font-size: 19px;
+    padding: 10px 8px;
+}
+table th {
+    background:#ff8c49;
+    color:#ffffff;
+    font-size: 17px;
+    text-align: left;
+    border: 1px solid #c9c9c9;
+    padding: 13px 15px;
+}
+table tr {
+    background:#ffffff;
+    text-align: left;
+}
+tr:hover{
+    background: #e7e7e7;
+}
+```
+terakhir kita akan buat css untuk admin dengan nama **admin.css**
+```
+/* import google font */
+@import
+url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+@import
+url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&display=swap');
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    line-height:1;
+    font-size:100%;
+    font-family:'Open Sans', sans-serif;
+    color:#5a5a5a;
+}
+#container {
+    width: 980px;
+    margin: 0 auto;
+    box-shadow: 0 0 1em #ffffff;
+}
+
+/* header */
+header {
+    padding: 20px;
+    background-image: url(bg2.jpg);
+}
+header h1 {
+    margin: 20px 10px;
+    color: #f3ef00;
+    text-align: center;
+    font-style: oblique;
+    font-weight: bold;
+    text-shadow:2px 2px red;
+}
+
+/* navigasi */
+nav {
+    background-color: #db5719;
+    height:50px;
+    line-height:50px;
+    position:relative;
+    margin:auto;
+    font-style: oblique;
+    font-weight: bold;    
+}
+nav ul {
+    list-style:none;
+}
+nav ul li a {
+    float:left;
+    width:150px;
+    color:#fff;
+    text-decoration:none;
+    display:block;
+    text-align:center;
+}
+nav ul li a.active,
+nav ul li a:hover {
+    background-color: #ea912b;
+    display:block;
+}
+
+/*css untuk menu hover dropdown*/
+nav ul li:hover .sub1 {display:block}
+nav ul .sub1 {
+    display:none;
+    position:absolute;
+    left:300px;
+    top:50px;
+    background-color:#ffae52;
+}
+.sub1 a:hover { color:#fff }
+
+nav ul li:hover .sub2 {display:block}
+nav ul .sub2 {
+    display:none;
+    position:absolute;
+    left:150px;
+    top:50px;
+    background-color:#ffae52;
+}
+.sub2 a:hover { color:#fff }
+
+nav ul li:hover .sub3 {display:block}
+nav ul .sub3 {
+    display:none;
+    position:absolute;
+    left:0px;
+    top:50px;
+    background-color:#ffae52;
+}
+.sub3 a:hover { color:#fff }
+
+/* footer */
+footer {
+    clear:both;
+    background-color:#1d1d1d;
+    padding:20px;
+    color:#eee;
+}
+
+/* Login Wrapper */
+#login-wrapper {
+    align-items: center;
+    width: 500px;
+    margin: 10px;
+    margin-left: 30%;
+    margin-top: 50px;
+    padding: 20px;
+    box-shadow: 0 0 1em #cccccc;
+}
+
+/* Tabel Warga */
+body{
+    font-family: sans-serif;
+}
+table{
+    border-collapse: collapse;
+    margin: 20px;
+    width: 95%;
+}
+table td{
+    border: 1px solid #c9c9c9;
+    font-size: 19px;
+    padding: 10px 8px;
+}
+table th {
+    background:#ff8c49;
+    color:#ffffff;
+    font-size: 17px;
+    text-align: left;
+    border: 1px solid #c9c9c9;
+    padding: 13px 15px;
+}
+table tr {
+    background:#ffffff;
+    text-align: left;
+}
+tr:hover{
+    background: #e7e7e7;
+}
+
+/* ADMIN TOMBOL */
+.btn{
+    font-size: 14px;
+    background-color: #afafaf;
+    color: #444444;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 8x;
+    text-decoration: none;
+}
+
+.btn-danger{
+    font-size: 14px;
+    background-color: rgb(223, 35, 35);
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 8x;
+    text-decoration: none;
+}
+
+a:active,
+a:hover{
+    opacity: 80%;
+}
+
+/* TAMBAH WARGA */
+
+h2{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+textarea{
+    width: 50%;
+    padding: 10px;
+    border: 2px solid gray;
+    box-sizing: border-box;
+    font-size: 15px;
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+input[type=text]{
+    width: 50%;
+    padding: 8px;
+    border: 2px solid gray;
+    box-sizing: border-box;
+    font-size: 15px;
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+.btn-large{
+    padding: 7px 10px;
+    background-color: rgb(103, 139, 180);
+    color: white;
+    font-size: 15px;
+    margin: 20px;
+    float: right;
+    margin-right: 470px;
+}
+
+.btn-back{
+    padding: 10px;
+    background-color: rgb(30, 117, 216);
+    color: white;
+    box-sizing: border-box;
+    font-size: 15px;
+    margin: 20px;
+    float: left;
+}
+
+.btn-large:active,
+.btn-large:hover{
+    opacity: 80%;
+}
+```
 Kita buat folder baru dengan nama **iuran** dalam direktori views, kemudian buat file **admin_index.php** dalam folder **iuran** lalu masukkan kode berikut
 ```
 <?= $this->include('template/admin_header'); ?>
