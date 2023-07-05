@@ -347,3 +347,397 @@ Kita buat folder baru dengan nama **iuran** dalam direktori views, kemudian buat
 
 <?= $this->include('template/admin_footer'); ?>
 ```
+setelah itu buat lagi file dengan nama **form_add.php**
+```
+<?= $this->include('template/admin_header'); ?>
+
+<h2><?= $title; ?></h2>
+<form action="" method="post">
+    <p><input type="text" name="keterangan" placeholder="Keterangan"></p>
+    <p><input type="text" id= "date" name="tanggal" placeholder="Tanggal"></p>
+    <p><input type="text" name="bulan" placeholder="Bulan"></p>
+    <p><input type="text" name="tahun" placeholder="Tahun"></p>
+    <p><input type="text" name="jumlah" placeholder="Jumlah"></p>
+    <p><input type="text" name="warga_id" placeholder="ID Warga"></p>
+    <p><input type="submit" value="Tambah" class="btn btn-large"></p>
+    <a href="<?= base_url('/admin/iuran');?>" class="btn btn-back">Batal</a>
+</form>
+
+<?= $this->include('template/admin_footer'); ?>
+```
+setelah itu buat lagi file dengan nama **form_edit.php**
+```
+<?= $this->include('template/admin_header'); ?>
+
+<h2><?= $title; ?></h2>
+<form action="" method="post">
+    <p>
+        <input type="text" name="keterangan" value="<?= $data['keterangan'];?>" >
+    </p>
+    <p>
+        <input type="text" name="tanggal" value="<?= $data['tanggal'];?>" >
+    </p>
+    <p>
+        <input type="text" name="bulan" value="<?= $data['bulan'];?>" >
+    </p>
+    <p>
+        <input type="text" name="tahun" value="<?= $data['tahun'];?>" >
+    </p>
+    <p>
+        <input type="text" name="jumlah" value="<?= $data['jumlah'];?>" >
+    </p>
+    <p><input type="submit" value="Kirim" class="btn btn-large"></p>
+</form>
+
+<?= $this->include('template/admin_footer'); ?>
+```
+kemudian buat lagi file dengan nama **index.php**
+```
+<?= $this->include('template/header'); ?>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Keterangan</th>
+            <th>Tanggal</th>
+            <th>Bulan</th>
+            <th>Tahun</th>
+            <th>Jumlah</th>
+            <th>ID Warga</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php if($iuran): foreach($iuran as $row): ?>
+    <tr>
+        <td><?= $row['id']; ?></td>
+        <td><?= $row['keterangan']; ?></td>
+        <td><?= $row['tanggal']; ?></td>
+        <td><?= $row['bulan']; ?></td>
+        <td><?= $row['tahun']; ?></td>
+        <td><?= $row['jumlah']; ?></td>
+        <td><?= $row['warga_id']; ?></td>
+    </tr>
+    <?php endforeach; else: ?>
+    <tr>
+        <td colspan="6">Belum ada data.</td>
+    </tr>
+    <?php endif; ?>
+    </tbody>
+</table>
+
+<?= $this->include('template/footer'); ?>
+```
+balik lagi ke view, kita buat folder baru dengan nama **laporan** lalu buat folder baru dengan nama **admin_laporan.php**
+```
+<?= $this->include('template/admin_header'); ?>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nama Warga</th>
+            <th>NIK</th>
+            <th>Bulan</th>
+            <th>Tahun</th>
+            <th>Jumlah Kas</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php if($iuran): foreach($iuran as $row): ?>
+    <tr>
+        <td><?= $row['warga_id']; ?></td>
+        <td><?= $row['nama']; ?></td>
+        <td><?= $row['nik']; ?></td>
+        <td><?= $row['bulan']; ?></td>
+        <td><?= $row['tahun']; ?></td>
+        <td><?= $row['jumlah']; ?></td>
+    </tr>
+    <?php endforeach; else: ?>
+    <tr>
+        <td colspan="6">Belum ada data.</td>
+    </tr>
+    <?php endif; ?>
+    </tbody>
+</table>
+
+<?= $this->include('template/admin_footer'); ?>
+```
+lalu buat lagi file baru dengan nama **laporan.php**
+```
+<?= $this->include('template/header'); ?>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nama Warga</th>
+            <th>NIK</th>
+            <th>Bulan</th>
+            <th>Tahun</th>
+            <th>Jumlah Kas</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php if($iuran): foreach($iuran as $row): ?>
+    <tr>
+        <td><?= $row['warga_id']; ?></td>
+        <td><?= $row['nama']; ?></td>
+        <td><?= $row['nik']; ?></td>
+        <td><?= $row['bulan']; ?></td>
+        <td><?= $row['tahun']; ?></td>
+        <td><?= $row['jumlah']; ?></td>
+    </tr>
+    <?php endforeach; else: ?>
+    <tr>
+        <td colspan="6">Belum ada data.</td>
+    </tr>
+    <?php endif; ?>
+    </tbody>
+</table>
+
+<?= $this->include('template/footer'); ?>
+```
+kembali lagi kita buat folder baru didalam view dengan nama **rt** kemudian buat file baru dengan nama **admin_index**
+```
+<?= $this->include('template/admin_header'); ?>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Nik</th>
+            <th>Nama</th>
+            <th>Kelamin</th>
+            <th>Alamat</th>
+            <th>Nomor</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php if($rt): foreach($rt as $row): ?>
+    <tr>
+        <td><?= $row['warga_id']; ?></td>
+        <td><?= $row['nik']; ?></td>
+        <td><?= $row['nama']; ?></td>
+        <td><?= $row['kelamin']; ?></td>
+        <td><?= $row['alamat']; ?></td>
+        <td><?= $row['no_rumah']; ?></td>
+        <td>
+            <a class="btn" href="<?= base_url('/admin/data_warga/edit/' .$row['warga_id']);?>">Ubah</a>
+            <a class="btn btn-danger" onclick="return confirm('Yakin menghapus data?');" href="<?= base_url('/admin/data_warga/delete/' .$row['warga_id']);?>">Hapus</a>
+        </td>
+    </tr>
+    <?php endforeach; else: ?>
+    <tr>
+        <td colspan="7">Belum ada data.</td>
+    </tr>
+    <?php endif; ?>
+    </tbody>
+</table>
+
+<?= $this->include('template/admin_footer'); ?>
+```
+lalu buat file baru dengan nama **form_add.php*
+```
+<?= $this->include('template/admin_header'); ?>
+
+<h2><?= $title; ?></h2>
+<form action="" method="post">
+    <p><input type="text" name="nik" placeholder="NIK"></p>
+    <p><input type="text" name="nama" placeholder="Nama"></p>
+    <p><input type="text" name="kelamin" placeholder="Jenis Kelamin"></p>
+    <p><textarea name="alamat" cols="10" rows="10" placeholder="Alamat"></textarea></p>
+    <p><input type="text" name="no_rumah" placeholder="Nomor Rumah"></p>
+    <p><input type="submit" value="Tambah" class="btn btn-large"></p>
+    <a href="<?= base_url('/admin/data_warga');?>" class="btn btn-back">Batal</a>
+</form>
+
+<?= $this->include('template/admin_footer'); ?>
+```
+lalu buat file baru lagi dengan nama **form_edit.php**
+```
+<?= $this->include('template/admin_header'); ?>
+
+<h2><?= $title; ?></h2>
+<form action="" method="post">
+    <p>
+        <input type="text" name="nik" value="<?= $data['nik'];?>" >
+    </p>
+    <p>
+        <input type="text" name="nama" value="<?= $data['nama'];?>" >
+    </p>
+    <p>
+        <input type="text" name="kelamin" value="<?= $data['kelamin'];?>" >
+    </p>
+    <p>
+        <textarea name="alamat" cols="10" rows="10"><?=$data['alamat'];?></textarea>
+    </p>
+    <p>
+        <input type="text" name="no_rumah" value="<?= $data['no_rumah'];?>" >
+    </p>
+    <p><input type="submit" value="Kirim" class="btn btn-large"></p>
+</form>
+
+<?= $this->include('template/admin_footer'); ?>
+```
+lalu buat lagi file baru dengan nama **index.php**
+```
+<?= $this->include('template/header'); ?>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Nik</th>
+            <th>Nama</th>
+            <th>Kelamin</th>
+            <th>Alamat</th>
+            <th>No. Rumah</th>
+
+        </tr>
+    </thead>
+    <tbody>
+    <?php if($rt): foreach($rt as $row): ?>
+    <tr>
+        <td><?= $row['warga_id']; ?></td>
+        <td><?= $row['nik']; ?></td>
+        <td><?= $row['nama']; ?></td>
+        <td><?= $row['kelamin']; ?></td>
+        <td><?= $row['alamat']; ?></td>
+        <td><?= $row['no_rumah']; ?></td>
+    </tr>
+    <?php endforeach; else: ?>
+    <tr>
+        <td colspan="6">Belum ada data.</td>
+    </tr>
+    <?php endif; ?>
+    </tbody>
+</table>
+
+<?= $this->include('template/footer'); ?>
+```
+kemudian buat folder baru didalan view dengan nama **template** lalu buat file dengan nama **admin_header.php**
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><?= $title; ?></title>
+    <link rel="stylesheet" href="<?= base_url('/admin.css');?>">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script>
+    $( function() {
+        $( "#date" ).datepicker({
+        dateFormat: "yy-mm-dd"
+        });
+    } );
+  </script>
+</head>
+<body>
+    <div id="container">
+    <header>
+        <h1>DASHBOARD</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="<?= base_url('/admin/data_warga');?>">Data Warga</a>
+                <ul class="sub3">
+                    <li><a href="<?= base_url('/admin/data_warga/add');?>">Tambah Warga</a></li>
+                </ul>
+            </li>
+            <li><a href="<?= base_url('/admin/iuran');?>">Kas Warga</a>
+                <ul class="sub2">
+                    <li><a href="<?= base_url('/admin/iuran/add');?>">Tambah Iuran</a></li>
+                </ul>
+            </li>
+            <li><a href="">Laporan Kas</a>
+                <ul class="sub1">
+                    <li><a href="<?= base_url('/admin/laporan');?>">Jumlah Kas</a></li>
+                </ul>
+            </li>
+            <li><a href="<?= base_url('/admin/logout');?>">Logout</a></li>
+        </ul>
+    </nav>
+```
+lalu buat file baru dengan nama **admin_footer.php**
+```
+    <footer>
+        <p>&copy; 2023 - TI.21.A.2 - Universitas Pelita Bangsa - Cikarang Selatan</p>
+    </footer>
+    </div>
+</body>
+</html>
+```
+lalu buat file baru dengan nama **header.php**
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><?= $title; ?></title>
+    <link rel="stylesheet" href="<?= base_url('/style.css');?>">
+</head>
+<body>
+    <div id="container">
+    <header>
+        <h1>DASHBOARD</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="<?= base_url('/data_warga');?>">Data Warga</a></li>
+            <li><a href="<?= base_url('/iuran');?>">Kas Warga</a></li>
+            <li><a href="">Laporan Kas</a>
+                <ul class="sub1">
+                    <li><a href="<?= base_url('/laporan');?>">Jumlah Kas</a></li>
+                </ul>
+            </li>
+            <li><a href="<?= base_url('/user/login');?>">Login</a></li>
+        </ul>
+    </nav>
+```
+lalu buat file baru dengan nama **footer.php**
+```
+    <footer>
+        <p>&copy; 2022 - TI.21.A.2 - Universitas Pelita Bangsa - Cikarang Selatan</p>
+    </footer>
+    </div>
+</body>
+</html>
+```
+kembali ke view lalu buat folder baru dengan nama **user** lalu buat file dengan nama **login.php** 
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="<?= base_url('/style.css');?>">
+</head>
+<body>
+    <div id="login-wrapper">
+        <h1>LOGIN</h1>
+        <?php if(session()->getFlashdata('flash_msg')):?>
+            <div class="alert alert-danger"><?=session()->getFlashdata('flash_msg') ?></div>
+        <?php endif;?>
+        <form action="" method="post">
+            <div class="mb-3">
+                <i class="fa fa-user"><i>
+                <label for="InputForEmail" class="form-label">Email Address</label>
+                <input type="email" name="email" class="form-control" id="InputForEmail" value="<?= set_value('email') ?>">
+            </div>
+            <div class="mb-3">
+                <label for="InputForPassword" class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" id="InputForPassword">
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+</body>
+</html>
+```
