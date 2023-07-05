@@ -1160,3 +1160,62 @@ lalu kembali ke view buat file dengan nama **halaman.php**
 </body>
 </html>
 ```
+# Membuat database seeder
+Database seeder digunakan untuk membuat data dummy. Untuk keperluan ujicoba modul login, kita
+perlu memasukkan data user dan password kedaalam database. Untuk itu buat database seeder
+untuk tabel user. Buka CLI, kemudian tulis perintah berikut:
+
+**php spark make:seeder UserSeeder**
+
+Selanjutnya, buka file **UserSeeder.php** yang berada di lokasi direktori
+**/app/Database/Seeds/UserSeeder.php** kemudian isi dengan kode berikut:
+```
+<?php
+
+namespace App\Database\Seeds;
+
+use CodeIgniter\Database\Seeder;
+
+class UserSeeder extends Seeder
+{
+	public function run()
+	{
+		$model = model('UserModel');
+		$model->insert([
+			'username' => 'admin',
+			'useremail' => 'admin@gmail.com',
+			'userpassword' => password_hash('admin', PASSWORD_DEFAULT),
+		]);
+	}
+}
+```
+Selanjutnya buka kembali CLI dan ketik perintah berikut:
+**php spark db:seed UserSeeder**
+
+# Menambahkan Auth filter
+Selanjutnya membuat filer untuk halaman admin. Buat file baru dengan nama **Auth.php** pada
+direktori **app/Filters**
+```
+<?php namespace App\Filters;
+
+use CodeIgniter\HTTP\RequestInterface;
+use CodeIgniter\HTTP\ResponseInterface;
+use CodeIgniter\Filters\FilterInterface;
+
+class Auth implements FilterInterface
+{
+    public function before(RequestInterface $request, $arguments = null)
+    {
+        // jika user belum login
+        if(! session()->get('logged_in')){
+            // maka redirct ke halaman login
+            return redirect()->to('/user/login');
+        }
+    }
+
+    public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
+    {
+        // Do something here
+    }
+}
+```
