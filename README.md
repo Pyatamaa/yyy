@@ -303,7 +303,26 @@ class User extends BaseController
 # Membuat layout web dengan CSS
 Pada dasarnya layout web dengan css dapat diimplamentasikan dengan mudah pada codeigniter. Yang
 perlu diketahui adalah, pada Codeigniter 4 file yang menyimpan asset css dan javascript terletak pada
-direktori **public**.
+direktori **public**. Pada folder view kita akan membuat layout web untuk user dan admin sebagai CRUD.
+
+Sebagai contohnya seperti yang bisa dilihat pada screenshot dibawah ini
+
+![WhatsApp Image 2023-07-05 at 17 18 12 (1)](https://github.com/pyatamaa/yyy/assets/92738041/b1a71b5d-52a1-4515-a560-54ac0b8e735c)
+
+![WhatsApp Image 2023-07-05 at 17 18 12](https://github.com/pyatamaa/yyy/assets/92738041/dccd5178-8159-4343-9bc3-ae0912f35a85)
+
+![WhatsApp Image 2023-07-05 at 17 18 11](https://github.com/pyatamaa/yyy/assets/92738041/ed99c44b-a810-47d6-b6c5-805acdce4b0a)
+
+![WhatsApp Image 2023-07-05 at 17 18 10 (1)](https://github.com/pyatamaa/yyy/assets/92738041/fa53ac3c-1b1c-4430-8cfe-1528c6b1f5d9)
+
+![WhatsApp Image 2023-07-05 at 17 18 09](https://github.com/pyatamaa/yyy/assets/92738041/e474c9b7-cd35-4440-a867-c9421322210c)
+
+![WhatsApp Image 2023-07-05 at 17 18 10](https://github.com/pyatamaa/yyy/assets/92738041/89e7686e-e90b-4d97-a8e6-58d0a0a8864d)
+
+![WhatsApp Image 2023-07-05 at 17 18 31](https://github.com/pyatamaa/yyy/assets/92738041/8440fbd9-9add-4797-8451-33e42f728b5b)
+
+![WhatsApp Image 2023-07-05 at 17 18 13](https://github.com/pyatamaa/yyy/assets/92738041/2cd2cc73-2f74-48a6-b9ea-73ea0e09df8c)
+
 
 disini kita akan membuat 2 css untuk tampilan user dan tampilan admin, pertama kita akan buat css untuk user dengan nama **style.css**
 ```
@@ -1051,7 +1070,7 @@ kemudian buat folder baru didalan view dengan nama **template** lalu buat file d
 lalu buat file baru dengan nama **admin_footer.php**
 ```
     <footer>
-        <p>&copy; 2023 - TI.21.A.2 - Universitas Pelita Bangsa - Cikarang Selatan</p>
+        <p>&copy; Universitas Pelita Bangsa</p>
     </footer>
     </div>
 </body>
@@ -1087,7 +1106,7 @@ lalu buat file baru dengan nama **header.php**
 lalu buat file baru dengan nama **footer.php**
 ```
     <footer>
-        <p>&copy; 2022 - TI.21.A.2 - Universitas Pelita Bangsa - Cikarang Selatan</p>
+        <p>&copy; Universitas Pelita Bangsa</p>
     </footer>
     </div>
 </body>
