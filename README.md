@@ -10,6 +10,10 @@
 
 https://youtu.be/ZMYhyl-Erx4
 
+# Rancangan ERD database
+
+![WhatsApp Image 2023-07-07 at 10 51 52](https://github.com/pyatamaa/yyy/assets/92738041/a3f6448c-ac81-4e79-bad6-bb6c610f05ab)
+
 # Penjelasan tentang database
 
 <img width="181" alt="Screenshot 2023-07-03 173621" src="https://github.com/pyatamaa/yyy/assets/92738041/7e2de403-0006-4047-9661-6952b4ee2ab4">
