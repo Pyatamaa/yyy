@@ -4,7 +4,7 @@
 * Zidan Lutfi Ramadhan - 312110304
 * Nur Pratama - 312110305
 * Yusuf Putra Bintang Satria - 312110317
-* Daffa Gibran - 3121
+* Daffa Gibran - 312110371
 
 # Link Youtube 
 
