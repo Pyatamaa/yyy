@@ -1,3 +1,15 @@
+# Anggota kelompok
+
+* Muhammad Ariel Saputra - 312110099
+* Zidan Lutfi Ramadhan - 312110304
+* Nur Pratama - 312110305
+* Yusuf Putra Bintang Satria - 312110317
+* Daffa Gibran - 3121
+
+# Link Youtube 
+
+https://youtu.be/ZMYhyl-Erx4
+
 # Penjelasan tentang database
 
 <img width="181" alt="Screenshot 2023-07-03 173621" src="https://github.com/pyatamaa/yyy/assets/92738041/7e2de403-0006-4047-9661-6952b4ee2ab4">
